@@ -24,6 +24,18 @@ This home lab setup includes an Ubuntu Server running Splunk for SIEM and a vuln
 
 1. **Download and Install Splunk:**
 
+Go to Splunk website and create an enterprise free trial account. I believe these trials last 60 days, so you have plenty of time to capture traffic. Once you create your account, navigate to the Splunk download and copy the wget for your use on your Ubuntu Server VM.
+
    ```sh
    wget -O splunk-latest.deb "https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-ddff1c41e5cf-linux-2.6-amd64.deb"
    sudo dpkg -i splunk-latest.deb
+
+2. **Start Splunk:**
+
+Use the following commands to first start splunk and accept license, then to enable splunk to run on boot. *Note: If these don't work then you likely didn't install it to the directory that is mentioned. Make sure you are using the command for the directory that Splunk is in.
+
+  ```sh
+  sudo /opt/splunk/bin/splunk start --accept-license
+  sudo /opt/splunk/bin/splunk enable boot-start
+
+  
