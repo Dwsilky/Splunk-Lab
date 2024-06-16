@@ -29,6 +29,7 @@ Go to Splunk website and create an enterprise free trial account. I believe thes
    ```sh
    wget -O splunk-latest.deb "https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-ddff1c41e5cf-linux-2.6-amd64.deb"
    sudo dpkg -i splunk-latest.deb
+   ```sh
 
 2. **Start Splunk:**
 
