@@ -121,3 +121,6 @@ You are looking for the latter option, and you will want to look under `inet` fo
 4. VIOLA, you are in and you completed the setup of the Indexer, good job pal.
 
 **Splunk Universal Forwarder**
+
+Now we will install the Universal Forwarder on our Windows VM to capture Windows Event logs. 
+
