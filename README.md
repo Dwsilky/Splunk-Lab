@@ -64,13 +64,29 @@ Just get yourself to the desktop of Windows, there are a lot of customization sc
 ```sh
 gpedit.msc
 ```
-4.In the Policy Editor, click Computer Configuration, Administrative Templates, Windows Components, Microsoft Defender Antivirus.
-5.Double click "Turn off Microsoft Defender Antivirus", and Click Enabled, make sure you hit Apply, then Ok. 
-6.From CMD as Administrator, type the following command to permanently disable Defender:
+4. In the Policy Editor, click Computer Configuration, Administrative Templates, Windows Components, Microsoft Defender Antivirus.
+5. Double click "Turn off Microsoft Defender Antivirus", and Click Enabled, make sure you hit Apply, then Ok. 
+6. From CMD as Administrator, type the following command to permanently disable Defender:
 ```sh
 REG ADD "hklm\software\policies\microsoft\windows defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
 ```
- 
+7. Boot into Safe Mode to disable all Defender services
+  i. Click start > msconfig
+  ii. Go to the tab that says Boot and click Boot Options.
+  iii. Check Safe Boot and Minimal. Apply, then hit ok. You will restart now into safe mode.
+8. We are in safe mode now and will go to registry editor in search bar.
+9. Under Computer\HKEY_LOCAL_MACHINE_\System\CurrentControls\Services you will look for the following final locations within this folder: 1. Sense 2. WdBoot 3. WinDefend 4. WdNisDrv 5.  WdNisSvc 6. WdFilter
+10. Foreach of the previous final locations within the mentioned registry folder, you need to double click the option that says "Start" and change the value to 4.
+11. Once complete exit safe mode the same way we got to it in step 7. Start > msconfig > boot tab > boot options > uncheck safe mode box > apply/ok > restart PC!
+12. **Final Step for Windows VM**: We will prevent VM from going into standby mode while we leave it vulnerable by typing the following into CMD as Admin:
+```sh
+powercfg /change standby-timeout-ac 0
+powercfg /change standby-timeout-dc 0
+powercfg /change monitor-timeout-ac 0
+powercfg /change monitor-timeout-dc 0
+powercfg /change hibernate-timeout-ac 0
+powercfg /change hibernate-timeout-dc 0
+```
 ### Ubuntu Server SIEM
 
 1. **Download and Install Splunk:**
