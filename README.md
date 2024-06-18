@@ -89,14 +89,14 @@ powercfg /change hibernate-timeout-dc 0
 ```
 ### Ubuntu Server SIEM
 
-1. **Download and Install Splunk:**
+**Download and Install Splunk:**
 
-Go to Splunk website and create an enterprise free trial account. I believe these trials last 60 days, so you have plenty of time to capture traffic. Once you create your account, navigate to the Splunk download and copy the wget for your use on your Ubuntu Server VM.
+1. Go to Splunk website and create an enterprise free trial account. I believe these trials last 60 days, so you have plenty of time to capture traffic. Once you create your account, navigate to the Splunk download and copy the wget for your use on your Ubuntu Server VM. **Note**: Make sure you choose the Linux .deb wget file. 
+2. Once you use wget type ls on your ubuntu machine and you should see 2 .deb files. Whichever one is your first file, in my case it was "splunk-9.2.1-78803f08aabb-linux-2.6-amd64.deb", you will type the following command with it to extract the file in order to use Splunk. **Note**: the following command CONTAINS WHAT MY FILE LOOKED LIKE, so if your file has a different name then change the command accordingly.
+```sh
+sudo dpkg -i splunk-9.2.1-78803f08aabb-linux-2.6-amd64.deb
+```
 
-   ```sh
-   wget -O splunk-latest.deb "https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-ddff1c41e5cf-linux-2.6-amd64.deb"
-   sudo dpkg -i splunk-latest.deb
-   ```
 
 2. **Start Splunk:**
 
