@@ -120,3 +120,4 @@ You are looking for the latter option, and you will want to look under `inet` fo
 3. Once you enter the ip in the Windows VM:8000 for the default port of 8000, you should see the web page for Splunk. Log in with the credentials you set up when you initialized Splunk on Ubuntu.
 4. VIOLA, you are in and you completed the setup of the Indexer, good job pal.
 
+**Splunk Universal Forwarder**
