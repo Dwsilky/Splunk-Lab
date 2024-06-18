@@ -64,6 +64,12 @@ Just get yourself to the desktop of Windows, there are a lot of customization sc
 ```sh
 gpedit.msc
 ```
+4.In the Policy Editor, click Computer Configuration, Administrative Templates, Windows Components, Microsoft Defender Antivirus.
+5.Double click "Turn off Microsoft Defender Antivirus", and Click Enabled, make sure you hit Apply, then Ok. 
+6.From CMD as Administrator, type the following command to permanently disable Defender:
+```sh
+REG ADD "hklm\software\policies\microsoft\windows defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+```
  
 ### Ubuntu Server SIEM
 
