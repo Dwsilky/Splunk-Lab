@@ -96,14 +96,14 @@ powercfg /change hibernate-timeout-dc 0
 ```sh
 sudo dpkg -i splunk-9.2.1-78803f08aabb-linux-2.6-amd64.deb
 ```
-
 **Start Splunk on Ubuntu:**
 
 Use the following commands to first start splunk and accept license, then to enable splunk to run on boot. *Note: If these don't work then you likely didn't install it to the directory that is mentioned. Make sure you are using the command for the directory that Splunk is in. **Important**: When you accept the license it will have you set up a user and password. Make sure you write this down or put in notepad, because you will use it in the web interface for Splunk to log in.
 
-  ```sh
-  sudo /opt/splunk/bin/splunk start --accept-license
-  sudo /opt/splunk/bin/splunk enable boot-start
+```sh
+sudo /opt/splunk/bin/splunk start --accept-license
+sudo /opt/splunk/bin/splunk enable boot-start
+```
 
 **Access Splunk Web GUI on Windows VM**
 
