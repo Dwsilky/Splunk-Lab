@@ -16,9 +16,13 @@ This repository contains the setup instructions for a home lab with an Ubuntu Se
 
 ## Overview
 
-This home lab setup includes an Ubuntu Server running Splunk for SIEM and a vulnerable Windows VM for security testing and monitoring.
+This home lab setup includes an Ubuntu Server running Splunk for SIEM and a vulnerable Windows VM for security testing and monitoring. This is my first time ever interacting with Splunk, and there are no good write-ups available online about setting this up in a lab for some reason. The only write-ups I saw, the writer did not cater to a beginner audience. Hopefully my issues and frustration can help make the process easier for you.
 
-## Setup
+## Network Setup and Splunk Overview
+
+First you want to set up 2 virtual machines. I opted to use VirtualBox, an Ubuntu Server 24.04 VM, and a Windows 10 VM. The reason I chose these 2 is simple: I saw multiple people also running Ubuntu Server and Windows 10 to host the Splunk Indexer and Forwarder, and a simple google search stated Ubuntu server is great for the task. There are 2 parts to Splunk: the indexer and the forwarder. The indexer is the query/aggregation engine that will be hosted on Ubuntu Server. The forwarder is essentially an agent that can monitor an OS for a variety of log sources. This will live on our vulnerable Windows 10 VM. Splunk is well known for being able to aggregate and collect logs from a wide variety of sources. I am not really sure how it would work with email, but I imagine a forwarder would have to be attached to the email server OS. 
+
+My networking skills are subpar at best so far, so I used chatGPT to determine how best to set up the network between the VMs and my host OS. I set up 2 network adaptors (NICs) on EACH VM. The first network adaptor for each VM will be NAT, and the second will be Internal Network (intnet on Virtualbox). NAT allows internet access for the VMs and Internal Network allows interhost communication between the VMs. 
 
 ### Ubuntu Server SIEM
 
