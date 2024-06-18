@@ -124,3 +124,11 @@ You are looking for the latter option, and you will want to look under `inet` fo
 
 Now we will install the Universal Forwarder on our Windows VM to capture Windows Event logs. 
 
+1. On the Windows VM, go to Splunk website and login. Then navigate to the Splunk Universal Forwarder 64 bit download for Windows 10.
+2. Install the Universal Forwarder and check the box to accept the license and click next.
+3. We will skip a Deployment Server as we won't be using one.
+4. For receiving indexer, use the IP address of your Ubuntu machine. Remember if you forgot it you can type "ip addr show" on the Ubuntu VM.
+5. You can leave the port blank as 9997 is the default and the one we will use. Finally, click install.
+
+
+
