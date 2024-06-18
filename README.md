@@ -24,7 +24,9 @@ First you want to set up 2 virtual machines. I opted to use VMWare, an Ubuntu Se
 
 My networking skills are subpar at best so far, so I used chatGPT to determine how best to set up the network between the VMs and my host OS.
 
-First, you will load your Ubuntu ISO (most recent version) to VMWare Workstation Pro (now free). For setup, I chose 100gb memory, 4 cores, and 8gb RAM. You can go less, but I've heard that Splunk is notorious for using a lot of RAM. When your VM is powered on you will go through the basic pre-set configs until you reach the "Network Configuration" page. **IMPORTANT**: This is where we will set a static IP address for this VM so it is easier to troubleshoot issues and doesn't change throughout the lab. You need to find out the gateway IP of your VMWare Workstation NAT. Here is how you do it: 
+## Ubuntu Setup
+
+First, you will load your Ubuntu ISO (most recent version) to VMWare Workstation Pro (now free). For setup, I chose 100gb memory, 4 cores, and 8gb RAM. You can go less, but I've heard that Splunk is notorious for using a lot of RAM. When your VM is powered on you will go through the basic pre-set configs until you reach the "Network Configuration" page. **IMPORTANT**: This is where we will set a static IP address for this VM so it is easier to troubleshoot issues and doesn't change throughout the lab. You need to find out the gateway IP and subnet IP of your VMWare Workstation NAT. Here is how you do it: 
 1. In VMWare main interface, click edit --> Virtual Network Editor.
 2. Click the Name that has "Type: NAT" then below click "NAT Settings...".
 3. You need your Subnet Mask and Gateway IP from this screen for the Ubuntu setup.
@@ -38,11 +40,17 @@ Continue through the installation prompts as defaults until you get to the profi
 
 You will be forced to restart Ubuntu once installation finished, and don't worry if reboot fails, happened to me once before mounting properly. 
 
-Once you login, you want to make sure you properly configured the network, so do a basic ping of google.com 
+Once you login, you want to make sure you properly configured the network, and your DNS is working. So do a basic ping of google.com: 
 
 ```sh
 ping -c 4 google.com
 ```
+
+If you aren't getting any visuals then the ping failed and you likely have to remount your ubuntu ISO and reconfigure the network settings as I specified.
+
+## Windows Setup
+
+
 
 ### Ubuntu Server SIEM
 
