@@ -50,8 +50,21 @@ If you aren't getting any visuals then the ping failed and you likely have to re
 
 ## Windows Setup
 
+I don't know if this was just a me issue or a normal issue with mounting a VM to an ISO, but for Windows, when you first load to your ISO, make sure you first click any key to continue (my load failed here for some reason when I didn't hit a key). 
 
+Choose Windows 10 Pro. **Important**: Make sure you choose custom installation as there is no prior version of Windows loaded to disk. 
 
+Just get yourself to the desktop of Windows, there are a lot of customization screens I am not going to walk through. Just try to avoid any features and use an offline account. 
+
+**Turn Windows Into a Honeypot**
+
+1. Go to search bar at bottom of screen and type Windows Security. Next go to virus and threat protection, scroll down a bit and click manage settings. TURN OFF EVERY SETTING HERE.
+2. I saw from a few sources it is good to permanently disable defender from Group Policy Editor, so we will type CMD in start menu and run as administrator.
+3. In CMD type:
+```sh
+gpedit.msc
+```
+ 
 ### Ubuntu Server SIEM
 
 1. **Download and Install Splunk:**
