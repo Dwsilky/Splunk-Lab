@@ -97,13 +97,26 @@ powercfg /change hibernate-timeout-dc 0
 sudo dpkg -i splunk-9.2.1-78803f08aabb-linux-2.6-amd64.deb
 ```
 
+**Start Splunk on Ubuntu:**
 
-2. **Start Splunk:**
-
-Use the following commands to first start splunk and accept license, then to enable splunk to run on boot. *Note: If these don't work then you likely didn't install it to the directory that is mentioned. Make sure you are using the command for the directory that Splunk is in.
+Use the following commands to first start splunk and accept license, then to enable splunk to run on boot. *Note: If these don't work then you likely didn't install it to the directory that is mentioned. Make sure you are using the command for the directory that Splunk is in. **Important**: When you accept the license it will have you set up a user and password. Make sure you write this down or put in notepad, because you will use it in the web interface for Splunk to log in.
 
   ```sh
   sudo /opt/splunk/bin/splunk start --accept-license
   sudo /opt/splunk/bin/splunk enable boot-start
 
-  
+**Access Splunk Web GUI on Windows VM**
+
+So we are now getting to the part where I started encountering a lot of issues.
+
+1. From the Windows VM go to the internet and type http:"linux-vm-ipaddress":8000 
+2. If you don't remember your Ubuntu Server ip address you can type the linux command:
+```sh
+ip addr show
+```
+There should only be 2 options, the loopback or lo: and the network interface we set up, which should look like `eth0`, `ens33`, or `enp0s3` etc..
+You are looking for the latter option, and you will want to look under `inet` for the correct IP.
+
+3. Once you enter the ip in the Windows VM:8000 for the default port of 8000, you should see the web page for Splunk. Log in with the credentials you set up when you initialized Splunk on Ubuntu.
+4. VIOLA, you are in and you completed the setup of the Indexer, good job pal.
+
