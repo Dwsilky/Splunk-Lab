@@ -130,5 +130,6 @@ Now we will install the Universal Forwarder on our Windows VM to capture Windows
 4. For receiving indexer, use the IP address of your Ubuntu machine. Remember if you forgot it you can type "ip addr show" on the Ubuntu VM.
 5. You can leave the port blank as 9997 is the default and the one we will use. Finally, click install.
 
+**The Rest is a Work in Progress...**
 
 
